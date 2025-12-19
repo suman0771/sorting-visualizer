@@ -1,0 +1,21 @@
+Project:
+Setup:
+npx create-react-app sorting-visualizer
+cd sorting-visualizer
+npm start
+
+
+Lets start today:
+
+Day1(17/12/25) :  I am building the skeleton of a product, not features
+
+Day2(18/12/25) :  Added array state, random generation, and custom input
+App.js → owns the array (STATE + LOGIC)
+ControlPanel.jsx → UI inputs (NO logic)
+ArrayVisualizer.jsx → displays array (NO logic)
+
+Day 3(19/12/25) : Implemented bubble sort step recording logic
+algorithms/bubbleSort.js ← NEW FILE
+App.js ← connect logic
+ControlPanel.jsx ← add Bubble Sort button
+
