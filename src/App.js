@@ -4,6 +4,8 @@ import React, {useState} from "react";//store array in memory
 import Navbar from "./components/Navbar";
 import ControlPanel from "./components/ControlPanel";
 import ArrayVisualizer from "./components/ArrayVisualizer";
+import { getBubbleSortSteps } from './algorithms/bubbleSort';
+
 
 
 function App() {
@@ -27,11 +29,17 @@ function App() {
     setArray(values);
   };
 
+  const handleBubbleSort=()=>{
+    const steps=getBubbleSortSteps(array);
+    console.log("Bubble Sort Steps:",steps);
+  };
+
   return (
     <div>
         <ControlPanel
         onGenerate={generateRandomArray}
         onCustomInput={setCustomArray}
+        onBubbleSort={handleBubbleSort}
         />
 
         <ArrayVisualizer array={array} />
