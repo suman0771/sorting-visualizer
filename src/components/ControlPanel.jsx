@@ -3,9 +3,6 @@ function ControlPanel({onGenerate, onCustomInput, onBubbleSort}){
     return (
         <div style={{padding:"10px"}}>
             <button onClick={onGenerate}>Generate Random Array</button>
-            <button onClick={onBubbleSort} style={{marginLeft:"10px"}}>
-                Bubble Sort
-            </button>
 
             <input
             type="text" placeholder="Enter numbers like 5,3,8,1"
@@ -16,6 +13,9 @@ function ControlPanel({onGenerate, onCustomInput, onBubbleSort}){
                     e.target.value="";
                 }
             }} />
+            <button onClick={onBubbleSort} style={{marginLeft:"10px"}}>
+                Bubble Sort
+            </button>
         </div>
     );
 }
