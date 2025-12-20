@@ -19,3 +19,8 @@ algorithms/bubbleSort.js ← NEW FILE
 App.js ← connect logic
 ControlPanel.jsx ← add Bubble Sort button
 
+Day 4(20/12/25) : 
+Bubble Sort visually animates
+Bars change color on comparison
+Bars swap heights correctly only illusion happens
+Speed is controlled via setTimeout
