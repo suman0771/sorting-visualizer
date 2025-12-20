@@ -6,37 +6,30 @@ Q) How does your visualizer work internally?
 which are later animated.
 
 Q1. “Can you explain how your sorting visualizer works?”
-Your answer:
 “The core idea is separating sorting logic from visualization.
 First, the algorithm runs on a copy of the array and records comparison and swap steps.
 These steps are later consumed by the UI to animate the bars.”
 
 Q2. “Why didn’t you directly sort the array in the UI?”
-Your answer:
 “Direct sorting makes visualization difficult and mixes logic with UI.
 Recording steps allows me to control speed, pause, and step-by-step execution.”
 
 Q3. “Where is your state stored and why?”
-Your answer:
 “The array state is stored in the App component because it is shared between the ControlPanel and ArrayVisualizer.
 This avoids prop drilling and keeps state centralized.”
 
 Q4. “What steps do you record in Bubble Sort?”
-Your answer:
 “I record comparison steps and swap steps, since these are the only events that affect visualization.”
 
 Q5. “What is the time and space complexity of your Bubble Sort?”
-Your answer:
 Time: O(n²) (average & worst)
 Space: O(1) (in-place)
 Stable: Yes
 
 Q6. “Why do you copy the array before sorting?”
-Your answer:
 “React state should not be mutated directly.
 Copying the array ensures pure algorithm execution without side effects.”
 
-Q7) "how animation works?"
+Q7. "how animation works?"
 “I animate sorting by precomputing steps and applying them using time delays.
 This avoids unnecessary React re-renders and keeps animations smooth.”
-

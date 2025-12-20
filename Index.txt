@@ -24,3 +24,20 @@ Bubble Sort visually animates
 Bars change color on comparison
 Bars swap heights correctly only illusion happens
 Speed is controlled via setTimeout
+
+document.getElementsByClassName
+    Gives direct access to bars
+    Faster than React re-render
+
+setTimeout(() => {}, i * 200)
+    Each step delayed
+    i controls order
+    200ms = animation speed
+
+Compare step
+    Turn bars red
+    Reset to blue
+
+Swap step
+    Swap heights only
+    Visual illusion of swapping values
