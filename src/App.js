@@ -6,7 +6,8 @@ import ControlPanel from "./components/ControlPanel";
 import ArrayVisualizer from "./components/ArrayVisualizer";
 import { getBubbleSortSteps } from './algorithms/bubbleSort';
 
-
+const PRIMARY_COLOR="blue";
+const COMPARE_COLOR="red";
 
 function App() {
   const [array,setArray]=useState([]); //array=current numbers, setArray=updates number
@@ -29,9 +30,36 @@ function App() {
     setArray(values);
   };
 
+  const animateSteps=(steps)=>{
+    const bars=document.getElementsByClassName("array-bar");
+
+    for(let i=0;i<steps.length;i++){
+      const step=steps[i];
+      setTimeout(()=>{
+        const { type, i:idx1,j:idx2 }=step;
+
+        if(type=="compare"){
+          bars[idx1].style.background=COMPARE_COLOR;
+          bars[idx2].style.background=COMPARE_COLOR;
+
+          setTimeout(()=>{
+            bars[idx1].style.background=PRIMARY_COLOR;
+          bars[idx2].style.background=PRIMARY_COLOR;
+          },150);
+        }
+        if(type=="swap"){
+          const tempHeight=bars[idx1].style.height;
+          bars[idx1].style.height=bars[idx2].style.height;
+          bars[idx2].style.height=tempHeight;
+        }
+      },i*200);
+    }
+  };
+
   const handleBubbleSort=()=>{
     const steps=getBubbleSortSteps(array);
-    console.log("Bubble Sort Steps:",steps);
+    // console.log("Bubble Sort Steps:",steps);
+    animateSteps(steps);
   };
 
   return (

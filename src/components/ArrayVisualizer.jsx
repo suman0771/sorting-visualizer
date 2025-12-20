@@ -12,6 +12,7 @@ function ArrayVisualizer({array}){
           {array.map((value,index)=>(
             <div 
             key={index}
+            className="array-bar"
             style={{
                 height:`${value * 2}px`,
                 width:"20px",
@@ -22,6 +23,7 @@ function ArrayVisualizer({array}){
             </div>
           ))}  
         </div>
+        
     );
 }
 
