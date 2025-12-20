@@ -36,3 +36,7 @@ Your answer:
 “React state should not be mutated directly.
 Copying the array ensures pure algorithm execution without side effects.”
 
+Q7) "how animation works?"
+“I animate sorting by precomputing steps and applying them using time delays.
+This avoids unnecessary React re-renders and keeps animations smooth.”
+
