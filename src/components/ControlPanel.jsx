@@ -1,19 +1,30 @@
 import React from "react";
-function ControlPanel({onGenerate, onCustomInput, onBubbleSort}){
+function ControlPanel({onGenerate, onCustomInput, onBubbleSort,speed,setSpeed,isSorting}){
     return (
         <div style={{padding:"10px"}}>
-            <button onClick={onGenerate}>Generate Random Array</button>
+            <button onClick={onGenerate} disabled={isSorting}>Generate Random Array</button>
 
             <input
-            type="text" placeholder="Enter numbers like 5,3,8,1"
-            style={{marginLeft:"10px"}}
-            onKeyDown={(e)=>{
-                if(e.key==="Enter"){
-                    onCustomInput(e.target.value);
-                    e.target.value="";
-                }
-            }} />
-            <button onClick={onBubbleSort} style={{marginLeft:"10px"}}>
+            type="text" 
+            min="50"
+            max="500"
+            step="50"
+            value={speed}
+            disabled={isSorting}
+            onChange={(e)=>setSpeed(Number(e.target.value))}
+            // placeholder="Enter numbers like 5,3,8,1"
+            // style={{marginLeft:"10px"}}
+            // onKeyDown={(e)=>{
+            //     if(e.key==="Enter"){
+            //         onCustomInput(e.target.value);
+            //         e.target.value="";
+            //     }
+            // }} 
+            />
+            <span style={{marginLeft:"10px"}}>
+                Speed:{speed} ms
+            </span>
+            <button onClick={onBubbleSort} disabled={isSorting} style={{marginLeft:"10px"}}>
                 Bubble Sort
             </button>
         </div>

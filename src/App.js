@@ -11,6 +11,9 @@ const COMPARE_COLOR="red";
 
 function App() {
   const [array,setArray]=useState([]); //array=current numbers, setArray=updates number
+
+  const [speed, setSpeed]=useState(200);
+  const [isSorting, setIsSorting]=useState(false);
   const generateRandomArray=()=>{
     const newArray=[];//temporary array
     for(let i=0;i<30;i++){
@@ -52,15 +55,22 @@ function App() {
           bars[idx1].style.height=bars[idx2].style.height;
           bars[idx2].style.height=tempHeight;
         }
-      },i*200);
+      },i*speed);
     }
   };
 
   const handleBubbleSort=()=>{
+    if(isSorting)return;
+    setIsSorting(true);
     const steps=getBubbleSortSteps(array);
     // console.log("Bubble Sort Steps:",steps);
     animateSteps(steps);
+    const totalTime=steps.length*speed;
+    setTimeout(()=>{
+      setIsSorting(false);
+    },totalTime);
   };
+
 
   return (
     <div>
@@ -68,6 +78,9 @@ function App() {
         onGenerate={generateRandomArray}
         onCustomInput={setCustomArray}
         onBubbleSort={handleBubbleSort}
+        speed={speed}
+        setSpeed={setSpeed}
+        isSorting={isSorting}
         />
 
         <ArrayVisualizer array={array} />
