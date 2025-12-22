@@ -1,5 +1,5 @@
 import React from "react";
-function ControlPanel({onGenerate, onCustomInput, onBubbleSort,speed,setSpeed,isSorting}){
+function ControlPanel({onGenerate, onCustomInput, onBubbleSort,onInsertionSort,speed,setSpeed,isSorting}){
     return (
         <div style={{padding:"10px"}}>
             <button onClick={onGenerate} disabled={isSorting}>Generate Random Array</button>
@@ -26,6 +26,9 @@ function ControlPanel({onGenerate, onCustomInput, onBubbleSort,speed,setSpeed,is
             </span>
             <button onClick={onBubbleSort} disabled={isSorting} style={{marginLeft:"10px"}}>
                 Bubble Sort
+            </button>
+            <button onClick={onInsertionSort} disabled={isSorting}>
+                Insertion Sort
             </button>
         </div>
     );
