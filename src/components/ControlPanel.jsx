@@ -1,13 +1,30 @@
 import React from "react";
-function ControlPanel({onGenerate, onCustomInput, onBubbleSort,onInsertionSort,speed,setSpeed,isSorting}){
+function ControlPanel({onGenerate, 
+    onCustomInput, 
+    onSort,
+    algorithm,
+    setAlgorithm,
+    speed,
+    setSpeed,
+    isSorting}){
     return (
         <div style={{padding:"10px"}}>
             <button onClick={onGenerate} disabled={isSorting}>Generate Random Array</button>
 
+            <select
+            value={algorithm}
+            disabled={isSorting}
+            onChange={(e)=>setAlgorithm(e.target.value)}
+            >
+                <option value="bubble">Bubble Sort</option>
+                <option value="insertion">Insertion Sort</option>
+                <option value="selection">Selection Sort</option>
+            </select>
+
             <input
-            type="text" 
+            type="range" 
             min="50"
-            max="500"
+            max="1500"
             step="50"
             value={speed}
             disabled={isSorting}
@@ -24,12 +41,16 @@ function ControlPanel({onGenerate, onCustomInput, onBubbleSort,onInsertionSort,s
             <span style={{marginLeft:"10px"}}>
                 Speed:{speed} ms
             </span>
-            <button onClick={onBubbleSort} disabled={isSorting} style={{marginLeft:"10px"}}>
+            {/* <button onClick={onBubbleSort} disabled={isSorting} style={{marginLeft:"10px"}}>
                 Bubble Sort
             </button>
             <button onClick={onInsertionSort} disabled={isSorting}>
                 Insertion Sort
-            </button>
+            </button> */}
+
+                <button onClick={onSort} disabled={isSorting}>Start Sorting</button>
+
+
         </div>
     );
 }

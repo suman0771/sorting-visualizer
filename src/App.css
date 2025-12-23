@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+
+.array-bar{
+  transition: height 0.3s ease, background-color 0.2s ease;
+}
