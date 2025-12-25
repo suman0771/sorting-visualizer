@@ -7,7 +7,7 @@ import ArrayVisualizer from "./components/ArrayVisualizer";
 import { getBubbleSortSteps } from './algorithms/bubbleSort';
 import { getSelectionSteps } from './algorithms/selectionSort';
 import { getInsertionSortSteps } from './algorithms/insertionSort';
-
+import { getMergeSortSteps } from './algorithms/mergeSort';
 
 const PRIMARY_COLOR="blue";
 const COMPARE_COLOR="red";
@@ -67,12 +67,20 @@ function App() {
           bars[i].style.height=bars[j].style.height;
           bars[j].style.height=temp;
         }
+        if(type === "overwrite"){
+          bars[step.index].style.height= `${step.value *2}px`;
+          bars[step.index].style.backgroundColor="green";
+
+          setTimeout(()=>{
+            bars[step.index].style.backgroundColor=PRIMARY_COLOR;
+          },speed/2);
+        }
       },index * speed);
     });
 
     setTimeout(()=>{
       setIsSorting(false);
-    }, steps.length * speed);
+    }, steps.length * speed +speed);
   };
 
         // if(type=="compare"){
@@ -111,7 +119,14 @@ function App() {
       steps=getBubbleSortSteps(array);
     }else if(algorithm === "insertion"){
       steps=getInsertionSortSteps(array);
-    }else{
+    }else if(algorithm === "merge"){
+      steps=getMergeSortSteps(array);
+      console.log(steps.filter((s)=>s.type === "overwrite").length,
+      "overwrite steps"
+    );
+    runAnimation(steps);
+    }
+    else{
       steps=getSelectionSteps(array);
     }
     runAnimation(steps);

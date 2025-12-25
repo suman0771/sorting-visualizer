@@ -19,6 +19,7 @@ function ControlPanel({onGenerate,
                 <option value="bubble">Bubble Sort</option>
                 <option value="insertion">Insertion Sort</option>
                 <option value="selection">Selection Sort</option>
+                <option value="merge">Merge Sort</option>
             </select>
 
             <input
