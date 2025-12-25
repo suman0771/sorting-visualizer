@@ -23,7 +23,6 @@ function ArrayVisualizer({array}){
             </div>
           ))}  
         </div>
-        
     );
 }
 

@@ -4,7 +4,6 @@ npx create-react-app sorting-visualizer
 cd sorting-visualizer
 npm start
 
-
 Lets start today:
 
 Day1(17/12/25) :  I am building the skeleton of a product, not features
@@ -40,4 +39,32 @@ Compare step
 
 Swap step
     Swap heights only
+
     Visual illusion of swapping values
+
+Day 5(21/12/25): Added speed control and disabled UI during sorting
+Move speed slider → animation speed changes
+
+Click Bubble Sort → buttons get disabled
+
+Animation finishes → buttons re-enabled
+
+No glitches on repeated clicks
+
+=>This is clean UX engineering.
+
+Day 6(22/12/25):Refactored animation engine and added insertion sort
+
+All sorting algorithms must return steps in the same format.
+
+Animation engine must not care which algorithm produced them.
+
+Day 7(23/12/25): Added selection sort and algorithm selector
+
+Selection Sort implemented
+Uses the same animation engine
+Algorithm selector (dropdown)
+Single “Start Sorting” button
+Zero duplicated animation code
+
+=>User selects algorithm → App decides which steps to generate → same animation engine runs
